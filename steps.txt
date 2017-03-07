@@ -1,0 +1,19 @@
+-----------------------------------------------
+STEPS
+-----------------------------------------------
+Create directory public for index file, it has routes to all other files. It also has the route to the vendor file which requires installation of SLIM framework (http://www.slimframework.com).
+(To install SLIM, composer is required,(http://www.getcomposer.org). Then type 'composer require slim/slim "version"' in CMD to install SLIM.)
+SLIM has documentation on homepage, try to paste and check if that code is valid and working. The vendors directory should be changed as it wouldn't be in same directory as index ("vendor/autoload.php" to "../vendor/autoload.php") (To run in browser: localhost/directory_name/index.php/hello/World)
+
+Create source directory having routes as sub-directory, routes will contain all the routes through which API could be accessed.
+
+Create htaccess file in public directory allowing to access URL in a better manner, htaccess can also be used to restrict user to open certain URLs.
+
+Create any route.php file in routes directory thorugh which route the webservice in intended to be accessed. Check if webservice on index.php is working here, no need to copy vendors require statement here. Also, add require statement to index.php
+
+Create config sub-directory in source and create db file in it, create connect function to connect databsae through PDO. (PDO Documentation: http://php.net/manual/en/intro.pdo.php).
+-Create database_username, database_password, database_host and database_name attributes.
+-Create connect function taking mysql_connection_string having host and dbname.
+-Create PDO with arguments mysql_connection_string, username, password in constructor.
+-Set error and exception attributes.
+-Return connection
